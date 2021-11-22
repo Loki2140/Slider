@@ -6,7 +6,7 @@ class Slider {
         this.position = 0;
         this.img = document.querySelector(address).querySelectorAll(".slider_item");
         debugger;
-        this.nav_points = document.querySelector(address).querySelectorAll(".nav_points").querySelectorAll(buttons);
+        this.nav_points = document.querySelector(address).querySelectorAll("button");
         this.navButtons = document.querySelector(address).querySelectorAll(".nav_buttons");
         this.slider = document.querySelector(address);
         this.event = this.slider.addEventListener("click", this.__clickerListener.bind(this));
