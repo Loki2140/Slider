@@ -26,6 +26,7 @@
     min-width: 100%;
     height: 480px;
 }
+
 .slider_item img {
     min-width: 100%;
     height: 480px;
@@ -69,11 +70,13 @@
     border-radius: 5px;
     background-color: rgb(58, 70, 134);
 }
-.disabled{
+
+.disabled {
     border: 1px solid rgba(0, 0, 0, 1);
     border-radius: 5px;
     background-color: rgba(58, 69, 134, 0.075) !important;
 }
+
 .points {
     text-align: center;
 }
@@ -89,19 +92,23 @@
 
     display: inline-block;
 }
+
 .points li button:hover {
     background-color: red;
-} 
+}
 
-.nav .right:hover, .left:hover {
+.nav .right:hover,
+.left:hover {
     color: rgb(48, 49, 49);
     background-color: rgba(68, 173, 158, 1);
 }
 
-.nav .right:checked, .left:checked {
+.nav .right:checked,
+.left:checked {
     color: rgb(48, 49, 49);
     background-color: rgb(0, 255, 42);
-} 
+}
+
 /* .activeItem {
 
 } */
