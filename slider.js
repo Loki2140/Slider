@@ -1,32 +1,43 @@
+"use strict";
 class Slider {
     constructor(address, settings) {
+        // по сути settings можно было передавать на прямую в конструктор, но захотел заморочится и сделать это через объект
         this.slider = document.querySelector(address);
         this.settings = settings;
         this.position = 0;
+        this.iteamWidth = this.slider.clientWidth / 1;
+        this.slidesScroll = 0;
+        this.scrollable = false;
+        this.items = this.slider.querySelector(".slider_items");
         this.img = this.slider.querySelectorAll(".slider_item");
         this.nav_points = this.slider.querySelectorAll("button");
         this.navButtons = this.slider.querySelectorAll(".nav_buttons");
         document.addEventListener('onload', this._settingsReader(settings));
-        this.event = this.slider.addEventListener("click", this._clickerListener.bind(this));
+        this.event = this.slider.addEventListener("click", this._clickerListener.bind(this)); // Почему тут пришлось биндить а выше нет, не совсем понимаю контекст. 
     }
 
     _setSlideToShow(settings) {
-        debugger;
-        if (settings > this.img.length)
+        if (settings > this.img.length || settings <= 0) // Проверка на дурака
             settings = 1;
-        console.log(this.img.length);
-        const sliderToShow = settings;
-        const iteamWidth = this.slider.clientWidth / sliderToShow;
-        console.log(iteamWidth);
+        this.iteamWidth = this.slider.clientWidth / settings;
         this.img.forEach((item) => {
-            item.style.minWidth = iteamWidth + 'px'
+            item.style.minWidth = `${this.iteamWidth}px`
         });
     }
     _setSlideToScrolle(settings) {
-        console.log(settings);
+        if (settings > this.img.length) {
+            settings = 1;
+        } else if (settings === this.img.length) {
+            this.slidesScroll = 0;
+        } else {
+            this.slidesScroll = settings * this.iteamWidth;
+        }
     }
+
+    // наверное стоит сократить но так на мой взгляд понятней 
     _setScrollable(settings) {
-        console.log(settings);
+        if (settings == true)
+            this.scrollable = true;
     }
 
 
@@ -42,7 +53,7 @@ class Slider {
                 }
             }
         }
-    }
+    } //в теории можно сломать поменяв параметры местами, надо проверить 
     _addActive(position) {
         this.img[position].classList.add('activeItem');
         this.nav_points[position].classList.add('activeButton');
@@ -51,7 +62,7 @@ class Slider {
         this.img[position].classList.remove('activeItem');
         this.nav_points[position].classList.remove('activeButton');
     }
-    // Стоит ли данный метод делать приватным? разобраться... 
+
     _clickerListener(event) {
         let target = event.target.dataset.target;
         if (target) {
@@ -60,16 +71,26 @@ class Slider {
             } else if (target.toLowerCase() === "left") {
                 this.changeLeftIMG();
             } else if (!isNaN(target))
-                this.changeByPoints(Number.parseInt(target));
+                this.changeByPoints(Number.parseInt(target)); // на всякий случай
         }
     }
     _setPossition(position) {
-        if (position >= this.img.length)
-            this.position = 0;
-        else if (position < 0)
+        if (this.scrollable == true)
+            if (position >= this.img.length)
+                this.position = 0;
+            else if (position < 0)
             this.position = this.img.length - 1;
         else
             this.position = position;
+        _move(position);
+    }
+    _move(position) {
+        const b = this.item.length - (Math.abs(position*-this.slidesScroll)+this.slidesScroll) / this.iteamWidth;
+        
+        this.items.style.transform = `translateX(${position*-this.slidesScroll}px)`;
+    }
+    _chkNavButtons(){
+
     }
 
     changeByPoints(numbmer) {
