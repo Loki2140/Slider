@@ -1,8 +1,8 @@
 const slider1 = new Slider(
     '.slaid1', {
-        slideToShow: 1,
+        SlideToShow: 2,
         SlidetoScrolle: 1,
-        scrollable: true
+        Scrollable: true
     }
 );
 const slider2 = new Slider(
