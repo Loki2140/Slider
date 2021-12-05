@@ -1,7 +1,7 @@
 const slider1 = new Slider(
     '.slaid1', {
         SlideToShow: 2,
-        SlidetoScrolle:3,
+        SlidetoScrolle: 2,
         Scrollable: true
     }
 );
