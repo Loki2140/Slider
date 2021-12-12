@@ -1,35 +1,46 @@
+/* Общие настройки */
 *,
 ::before,
 ::after {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0 0;
+    padding: 0 0;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div>p,
+h1 {
+    margin: 10px 10px;
+    text-align: center;
+}
+
+/* Позиционированние слайдера */
 .slider {
-    width: 600px;
-    margin: 0 auto;
+    margin: 10px 50px;
 }
 
 .slider_container {
+    margin: 0 auto;
+    max-width: 1000px;
     position: relative;
-    overflow: hidden;
     background-color: pink;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
+/* Задний фон слайдера, его элементов.*/
 .slider_items {
     display: flex;
     background-color: yellow;
     transition: .2s;
-
-}
-
-.slider_item {
-    min-width: 100%;
-    height: 480px;
-}
-
-.slider_item img {
-    min-width: 100%;
-    height: 480px;
 }
 
 .slider_item:nth-child(2n+1) {
@@ -40,43 +51,44 @@
     background-color: green;
 }
 
+/* Кнопки и нижняя навигация*/
 .nav {
     position: absolute;
     width: 100%;
     bottom: 10px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+
 }
 
-.nav .right {
+.nav .right,
+.left {
     position: absolute;
-    right: 10px;
-    bottom: 220px;
     color: white;
-    width: auto;
+    width: 70px;
     padding: 5px 20px;
-    border: 1px solid rgba(0, 0, 0, 1);
+    overflow: hidden;
+    border: 1px solid rgba(177, 183, 221, 0.63);
     border-radius: 5px;
-    background-color: rgb(58, 70, 134);
+    background-color: rgba(177, 183, 221, 0.527);
+}
+
+/* Позиция кнопок навигации */
+.nav .right {
+    right: 10px;
+    bottom: 5px;
 }
 
 .nav .left {
-    position: absolute;
     left: 10px;
-    bottom: 220px;
-    color: white;
-    width: auto;
-    padding: 5px 20px;
-    border: 1px solid rgba(0, 0, 0, 1);
-    border-radius: 5px;
-    background-color: rgb(58, 70, 134);
+    bottom: 5px;
 }
 
-.disabled {
-    border: 1px solid rgba(0, 0, 0, 1);
-    border-radius: 5px;
-    background-color: rgba(58, 69, 134, 0.075) !important;
-}
-
+/* Стили нижней навигации */
 .points {
     text-align: center;
 }
@@ -89,29 +101,61 @@
 }
 
 .points ul li {
-
+    padding: 3px;
     display: inline-block;
 }
 
-.points li button:hover {
-    background-color: red;
+/* Эффекты кнопок и нижней навигаци*/
+.nav .right:hover:after,
+.left:hover:after {
+    left: -50%;
+    opacity: 1;
+    top: -50%;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-property: left, top, opacity;
+    transition-timing-function: ease;
 }
 
-.nav .right:hover,
-.left:hover {
-    color: rgb(48, 49, 49);
-    background-color: rgba(68, 173, 158, 1);
+.nav .right:after,
+.left:after {
+    content: "";
+    height: 300%;
+    left: -230%;
+    opacity: 0;
+    position: absolute;
+    top: -20%;
+    transform: rotate(-30deg);
+    width: 200%;
+
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0.13) 0%,
+            rgba(255, 255, 255, 0.13) 77%,
+            rgba(255, 255, 255, 0.5) 92%,
+            rgba(255, 255, 255, 0.0) 100%);
 }
 
-.nav .right:checked,
-.left:checked {
-    color: rgb(48, 49, 49);
-    background-color: rgb(0, 255, 42);
+.nav .right:active:after,
+.left:active:after {
+    opacity: 0;
 }
 
-/* .activeItem {
-
-} */
 .activeButton {
-    background-color: rgb(250, 7, 197);
+    margin: 0 4px;
+    transform-style: preserve-3d;
+    transform: scale(1.7, 1.3);
+    transition-timing-function: ease;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+}
+
+.points li button:hover {
+    transition: ease-in-out 0.5s;
+    background: rgba(0, 0, 0, 0.699);
+    border-radius: 10px;
+}
+
+/* Стили выключенной кнопки */
+.nav .right:disabled,
+.left:disabled {
+    visibility: hidden;
 }

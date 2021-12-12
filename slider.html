@@ -4,32 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>Сладер на классах с сеттингами!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
+    <div class="text">
+        <h1>В планах все переделать, сделать это по принципу SOLID, хотя бы попробовать.</h1>
+        <P>К сожалению, до меня долго доходит. В чем был смысл задания. Наверное, все таки, должен был пройти этот путь.
+            Пока я
+            вспомнил, что нужен был Адаптивный слайдер. Потом вспомнил, что такое класс и как с ним работать. В итоге,
+            класс в данном случае - удобная обвертка. Потом узнал
+            о SOLID...</P>
+        <P>В общем и целом, этот слайд я переделывал уже раз 5. Нет пределу совершенства. Технический долг сдать его как
+            он есть.</P>
+        <p>Пока что так. Дальше буду пробовать, переделать некоторые методы в отдельные классы. Буду стримится к
+            принципу SOLID, а значит все придется переделать заново. Попробу. применить этот метод в таблицах и
+            сортировках.</p>
+    </div>
+    <div class="text">
+        <h2>Что сделано?</h2>
+            <ol>
+                <li>Адаптивный</li>
+                <li>Два слайда, работабт паралельно друг-другу</li>
+                <li>С доп настройками</li>
+                <li>Работает)</li>
+            </ol>
+    </div>
+    <div class="text">
+        <P>СЛАЙДЕР 1</P>
+    </div>
     <div class="slider, slaid1">
         <div class="slider_container">
             <div class="slider_items">
-                <div class='slider_item activeItem'><img src="" alt="picture">1</div>
-                <div class='slider_item'><img src="" alt="picture">2</div>
-                <div class='slider_item'><img src="" alt="picture">3</div>
-                <div class='slider_item'><img src="" alt="picture">4</div>
-                <div class='slider_item'><img src="" alt="picture">5</div>
+                <img class='slider_item' src="img/1.jpg" alt="picture">
+                <img class='slider_item' src="img/2.jpg" alt="picture">
+                <img class='slider_item' src="img/3.jpg" alt="picture">
+                <img class='slider_item' src="img/4.jpg" alt="picture">
+                <img class='slider_item' src="img/5.jpg" alt="picture">
             </div>
             <div class="nav">
-                <div class="nav_buttons left disabled" data-target="left">Left</div>
-                <div class="nav_buttons right" data-target="right">Right</div>
+                <button class="nav_buttons left" data-target="left">Left</button>
+                <button class="nav_buttons right" data-target="right">Right</button>
                 <div class="points">
-                    <ul>
-                        <li class="nav_points"><button class='activeButton' type="button" data-target="1"></button></li>
-                        <li class="nav_points"><button type="button" data-target="2"></button></li>
-                        <li class="nav_points"><button type="button" data-target="3"></button></li>
-                        <li class="nav_points"><button type="button" data-target="4"></button></li>
-                        <li class="nav_points"><button type="button" data-target="5"></button></li>
-                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text">
+        <P>СЛАЙДЕР 2</P>
+    </div>
+    <div class="slider, slaid2">
+        <div class="slider_container">
+            <div class="slider_items">
+                <img class='slider_item' src="img/1.jpg" alt="picture">
+                <img class='slider_item' src="img/2.jpg" alt="picture">
+                <img class='slider_item' src="img/3.jpg" alt="picture">
+                <img class='slider_item' src="img/4.jpg" alt="picture">
+                <img class='slider_item' src="img/5.jpg" alt="picture">
+            </div>
+            <div class="nav">
+                <button class="nav_buttons left" data-target="left">Left</button>
+                <button class="nav_buttons right" data-target="right">Right</button>
+                <div class="points">
                 </div>
             </div>
         </div>
