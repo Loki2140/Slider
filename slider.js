@@ -64,7 +64,7 @@ class Slider {
             this.scrollable = true;
     }
 
-    // Просчитываем и выставляем кол навигационных маркеров 
+    // Просчитываем и выставляем кол-во навигационных маркеров 
     _setPoints() {
         const ul = document.createElement('ul'),
             points = Math.ceil((this.img.length - this.slidesToShow) / this.slidesToScroll + 1);
@@ -132,7 +132,7 @@ class Slider {
         }
     }
     // Проверка Кнопок Влево, Вправо
-    _chkNavButtons(d) {
+    _chkNavButtons() {
         this.slider.querySelector('.left').disabled = this.positionButtons == 0;
         this.slider.querySelector('.right').disabled = this.positionButtons == this.nav_points.length-1;
     }
@@ -150,7 +150,7 @@ class Slider {
         this.items.style.transform = `translateX(${this.curentPosition}px)`; // можно сократить в новый метод
     }
 
-    // Движение основной навигации. - Можно значительлно сократить. ВЫКЛЮЧЕННО \||/
+    // Движение основной навигации. - Можно значительлно сократить. ВЫКЛЮЧЕНО \||/
 
     _move(progress) {
         if (progress == undefined)
@@ -178,7 +178,7 @@ class Slider {
         }
         this.items.style.transform = `translateX(${this.curentPosition}px)`; // можно сократить в новый метод
     }
-    // ВЫКЛЮЧЕННО /||\
+    // ВЫКЛЮЧЕНО /||\
 
     // Основная навигация 
     changeRightIMG() {
