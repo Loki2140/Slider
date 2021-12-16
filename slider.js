@@ -30,7 +30,7 @@ class Slider {
         window.addEventListener("resize", () => this._settingsInit()); // не могу понять почему работает именно вот так '() =>' работает 
     }
     // Методы сетингов 
-
+// git SOLID
     _settingsReader(settings) {
         for (const key in settings) {
             if (Object.hasOwnProperty.call(settings, key)) {
